@@ -1,13 +1,145 @@
+:root{
+  --main-color: #9C917D;
+}
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Rubik', sans-serif !important ;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
+}
+/* strat navbar */
+.navbar{
+  border-bottom: 1px solid #B6B6B6;
+  position: relative;
+  z-index: 10;
+
+}
+/* end navbar */
+/* start Auth  */
+code {
+  font-family:"Rubik-Bold";
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.colorDef{
+color: var(--main-color);
 }
+.bgDef{
+background-color: var(--main-color);
+}
+.fixeW{
+  width: 30%;
+}
+.colorTr{
+color: #B6B6B6;
+}
+.fontSmall{
+  font-size: 10px;
+}
+.boxInFor{
+  position: relative;
+z-index: 100;
+top: 150px;
+}
+.eyeHide{
+  cursor: pointer;
+  position: absolute;
+  left: 3%;
+  top: 63%;
+  z-index: 999999;
+}
+.mainButton{
+color: #fff;
+text-decoration: none;
+list-style: none;
+background-color: var(--main-color);
+border: none;
+
+}
+/* end Auth  */
+/*start layout */
+
+/*end layout */
+
+.layout{
+  position: fixed;
+  background-color:rgba(0, 0, 0, 0.075);
+  left: 0;
+  bottom: 0%;
+  right: 0%;
+  top: 0;
+  padding: 20px;
+  filter: blur(4px);
+  z-index: 10;
+  -webkit-filter: blur(4px);
+}
+.layoutOne{
+  position: absolute;
+  left: 35%;
+  bottom: 35%;
+  filter: blur(4px);
+  padding: 25px;
+  -webkit-filter: blur(4px);
+}
+
+
+/* start media Navbar */
+
+@media screen and (max-width: 650px) {
+  .navBoot{
+    /* background-color: #9C917D !important; */
+    display: flex;
+    /* justify-content: center; */
+    /* align-items: center; */
+
+  }
+  .start{
+    display: flex;
+    flex-direction: row;
+  }
+  .start a{
+
+    padding-left: 10px;
+  }
+  .box{
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+  .items{
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+  .items ul li a{
+padding-left: 5px;
+  }
+  .img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+/* end media Navbar */
+
+/* start media Auth */
+@media screen and (max-width: 992px) {
+  .fixeW{
+    width: 40% ;
+  }
+  .boxInFor{
+    width: 50% !important;
+  }
+}
+@media screen and (max-width: 789px) {
+  .fixeW{
+    width: 50% ;
+  }
+}
+@media screen and (max-width: 500px) {
+  .fixeW{
+    width: 70% ;
+  }
+}
+/* end media Auth */
+
+
+
