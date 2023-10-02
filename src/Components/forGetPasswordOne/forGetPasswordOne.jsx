@@ -37,21 +37,37 @@ function HidePasswordTwoP() {
         repassword:Yup.string().required('اعاده كلمه السر مطلوبه').oneOf([Yup.ref('new_password')],"كلمه السر و اعاده كلمه السر غير مطابقه"),
     
       });
-         // send api to backend
-  async function handelRepassword(values) {
-    let {data}= await axios.post(`http://66.45.248.247:8000/auth/reset-password/`,values).catch((errr)=>{
-      setmessageError(`${errr.response.data.email} `)
-    });
-    if (data.type === 'successful') {
-  navigate("/forGetPasswordTwo")
-  console.log('ture');
-  }else{
-    console.log('fales');
-  }
+             // send api to backend
 
-     console.log(data.type);
-     
-   };
+
+  const handelRepassword = async (event, token) => {
+    if (localStorage.getItem('userToken')!=null) {
+    let token=  localStorage.getItem('userToken');
+    setotptoken(token)
+    }
+    const formData = new FormData(document.querySelector(".picForm"));
+    let response = await fetch(
+      `http://66.45.248.247:8000/auth/reset-password/`,
+      {
+        headers: {
+          Accept: "application/json",
+          Authorization: "Token "+otptoken,
+        },
+        method: "post",
+        body: formData,
+        redirect: "follow",
+      }
+    );
+    const responseData = await response.json();
+    console.log(responseData);
+    if (responseData.type=='successful') {
+      navigate("/forGetPasswordTwo")
+    console.log('ture');
+
+    } else {
+    console.log('fales');
+    }
+  };
   let formik=useFormik({
     initialValues:{
       otp:'',
